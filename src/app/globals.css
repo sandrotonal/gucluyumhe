@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #0ea5e9; /* Elektrik mavisi */
+  --primary-dark: #0284c7;
+  --primary-light: #38bdf8;
+  --accent: #06b6d4; /* Turkuaz tonu */
+  --card-bg: #ffffff;
+  --card-border: #f1f5f9;
+  --card-shadow: rgba(0, 0, 0, 0.05);
+  --card-hover-shadow: rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --primary: #38bdf8; /* Daha parlak elektrik mavisi */
+    --primary-dark: #0ea5e9;
+    --primary-light: #7dd3fc;
+    --accent: #22d3ee; /* Daha parlak turkuaz */
+    --card-bg: #111827;
+    --card-border: #1f2937;
+    --card-shadow: rgba(0, 0, 0, 0.2);
+    --card-hover-shadow: rgba(0, 0, 0, 0.4);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Kart animasyonları */
+.card-hover-effect {
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px var(--card-hover-shadow);
+}
+
+/* Dark mode için kart hover efekti */
+.dark .card-hover-effect {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+.dark .card-hover-effect:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+}
+
+/* Gelişmiş kart animasyonları */
+.card-hover-effect .card-image {
+  overflow: hidden;
+}
+
+.card-hover-effect .card-image img {
+  transition: transform 0.7s ease;
+}
+
+.card-hover-effect:hover .card-image img {
+  transform: scale(1.08);
+}
+
+/* Kart içerik animasyonları */
+.card-hover-effect h3 {
+  transition: color 0.3s ease;
+}
+
+.card-hover-effect:hover h3 {
+  color: var(--primary);
+}
+
+/* Kart border animasyonu */
+.card-hover-effect {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.card-hover-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary), var(--accent));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: 2;
+}
+
+.card-hover-effect:hover::before {
+  transform: scaleX(1);
+}
+
+/* Buton ve link animasyonları */
+.btn-transition {
+  transition: all var(--transition-speed) ease;
+}
+
+/* Sayfa geçiş animasyonları */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.page-transition {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Parallax efekti */
+.parallax-hero {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: transform 0.5s ease-out;
+}
+
+/* Scroll animasyonları */
+.scroll-animate {
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.scroll-animate.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.scroll-animate.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover efektleri */
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+}
