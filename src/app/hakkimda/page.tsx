@@ -1,13 +1,12 @@
 'use client';
 
-import Image from 'next/image';
 import { useEffect } from 'react';
 
 // Scroll animasyonu için fonksiyon
 const handleScroll = () => {
   const scrollElements = document.querySelectorAll('.scroll-animate');
   
-  const elementInView = (el, scrollOffset = 100) => {
+  const elementInView = (el: Element, scrollOffset = 100) => {
     const elementTop = el.getBoundingClientRect().top;
     return (elementTop <= window.innerHeight - scrollOffset);
   };
@@ -131,7 +130,7 @@ export default function AboutPage() {
               Profesyonel Profil
             </h2>
             <div className="mb-4 p-3 border-l-4 border-[var(--primary)] bg-[var(--primary)]/5 rounded-r-md italic text-gray-600 dark:text-gray-300">
-              "Teknoloji tutkusu ve çözüm odaklı yaklaşımımla, işletmenizin dijital dönüşümüne katkı sağlamak için buradayım."
+              &quot;Teknoloji tutkusu ve çözüm odaklı yaklaşımımla, işletmenizin dijital dönüşümüne katkı sağlamak için buradayım.&quot;
             </div>
             <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
               Merhaba! Ben Ömer, 5+ yıllık deneyime sahip bir <strong>Senior Full Stack Geliştirici</strong> olarak, kurumsal ve startup projelerinde end-to-end çözümler sunuyorum. Modern web teknolojileri kullanarak, ölçeklenebilir, güvenli ve yüksek performanslı uygulamalar geliştiriyorum.

@@ -3,8 +3,6 @@ import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import remarkHtml from 'remark-html';
-import remarkRehype from 'remark-rehype';
-import rehypeStringify from 'rehype-stringify';
 
 const postsDirectory = path.join(process.cwd(), 'content/posts');
 
@@ -85,11 +83,12 @@ export async function getPostData(slug: string): Promise<Post> {
   
   // Markdown içeriğini HTML'e dönüştür
   const processedContent = await remark()
-    .use(remarkRehype)
-    .use(rehypeStringify)
+    .use(remarkHtml)
     .process(matterResult.content);
   const content = processedContent.toString();
   
+  console.log(`Processed content for ${slug}:`, content.substring(0, 100)); // Debug log
+
   return {
     id: slug,
     content,
