@@ -1,8 +1,10 @@
 import { getAllPostIds } from '@/utils/markdown';
 import { MetadataRoute } from 'next';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://example.com'; // User should update this domain
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com';
   const posts = getAllPostIds();
 
   const postUrls = posts.map((post) => ({
