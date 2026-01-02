@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { Post } from '@/utils/markdown';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 // SVG bileşenleri
 const ArrowLeft = ({ className }: { className?: string }) => (
@@ -43,6 +43,7 @@ interface BlogPostClientProps {
 
 export default function BlogPostClient({ postData }: BlogPostClientProps) {
   useScrollAnimation();
+  const [currentUrl, setCurrentUrl] = useState<string>('');
 
   // Scroll animasyonu için manuel tetikleme
   useEffect(() => {
@@ -53,14 +54,12 @@ export default function BlogPostClient({ postData }: BlogPostClientProps) {
         el.classList.add('visible');
       });
     }, 100);
-  }, []);
 
-  // Demo fonksiyonu
-  const showDemo = (postId: string) => {
-    alert(`${postId} için demo başlatılıyor...`);
-    // Burada gerçek bir demo başlatma kodu olabilir
-    // Örneğin: window.open(`/demo/${postId}`, '_blank');
-  };
+    // URL'i client-side'da al
+    if (typeof window !== 'undefined') {
+      setCurrentUrl(window.location.href);
+    }
+  }, []);
 
   return (
     <div className="container mx-auto px-4 py-12 page-transition">
@@ -127,33 +126,28 @@ export default function BlogPostClient({ postData }: BlogPostClientProps) {
             <span className="absolute -bottom-2 left-0 w-1/3 h-1 bg-[var(--primary)] rounded-full"></span>
           </h3>
           <div className="flex gap-4">
-            <button
-              onClick={() => showDemo(postData.id)}
-              className="p-3 bg-[var(--primary)] text-white rounded-full hover:bg-[var(--primary-dark)] transition-all duration-300 hover:scale-110 btn-transition"
-              aria-label="Demo Göster"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
-              </svg>
-            </button>
-            <a
-              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(postData.title)}&url=${encodeURIComponent(`https://example.com/blog/${postData.id}`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 bg-[#1DA1F2] text-white rounded-full hover:bg-[#0c85d0] transition-all duration-300 hover:scale-110 btn-transition"
-              aria-label="Twitter'da Paylaş"
-            >
-              <Twitter className="w-5 h-5" />
-            </a>
-            <a
-              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://example.com/blog/${postData.id}`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 bg-[#0077B5] text-white rounded-full hover:bg-[#005885] transition-all duration-300 hover:scale-110 btn-transition"
-              aria-label="LinkedIn'de Paylaş"
-            >
-              <Linkedin className="w-5 h-5" />
-            </a>
+            {currentUrl && (
+              <>
+                <a
+                  href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(postData.title)}&url=${encodeURIComponent(currentUrl)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-[#1DA1F2] text-white rounded-full hover:bg-[#0c85d0] transition-all duration-300 hover:scale-110 btn-transition"
+                  aria-label="Twitter'da Paylaş"
+                >
+                  <Twitter className="w-5 h-5" />
+                </a>
+                <a
+                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentUrl)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-[#0077B5] text-white rounded-full hover:bg-[#005885] transition-all duration-300 hover:scale-110 btn-transition"
+                  aria-label="LinkedIn'de Paylaş"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+              </>
+            )}
           </div>
         </div>
       </div>

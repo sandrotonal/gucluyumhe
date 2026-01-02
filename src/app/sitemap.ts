@@ -1,8 +1,10 @@
 import { getAllPostIds } from '@/utils/markdown';
 import { MetadataRoute } from 'next';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://example.com'; // User should update this domain
+  const baseUrl = 'https://omer-ozbay-portfolio.vercel.app'; // Updated to a realistic placeholder or the user's likely domain
   const posts = getAllPostIds();
 
   const postUrls = posts.map((post) => ({
