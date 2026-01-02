@@ -31,23 +31,32 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
         {/* Content - reverse parallax effect */}
         <div className="max-w-3xl mx-auto px-4 relative z-10 parallax-content">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[var(--primary-dark)] to-[var(--accent)] dark:from-[var(--primary)] dark:to-[var(--accent)]">
-            Yazılım Geliştirme Yolculuğum
+            Merhaba, ben Ömer Özbay.
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-10 leading-relaxed">
-            Merhaba! Ben bir yazılım geliştiricisiyim. Modern web teknolojileri ile projeler geliştiriyor ve deneyimlerimi bu blogda paylaşıyorum.
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+            20 yaşındayım ve Ağrı / Doğubayazıt’tan yazılım geliştiriyorum.
           </p>
-          <div className="flex flex-wrap justify-center gap-6">
+          <p className="text-lg text-gray-600 dark:text-gray-300 mb-10 leading-relaxed">
+             Web, SaaS ve AI tabanlı projeler üretiyorum.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
             <Link
-              href="/blog"
-              className="px-8 py-3 bg-[var(--primary)] text-white font-medium rounded-lg hover:bg-[var(--primary-dark)] shadow-lg shadow-[var(--primary)]/20 hover:shadow-[var(--primary)]/30 transition-all duration-300 btn-transition"
+              href="/projects"
+              className="px-6 py-3 bg-[var(--primary)] text-white font-medium rounded-lg hover:bg-[var(--primary-dark)] shadow-lg shadow-[var(--primary)]/20 hover:shadow-[var(--primary)]/30 transition-all duration-300 btn-transition"
             >
-              Blog Yazılarım
+              Projelerim
             </Link>
             <Link
-              href="/hakkimda"
-              className="px-8 py-3 bg-white dark:bg-gray-800 text-[var(--primary)] font-medium rounded-lg border border-[var(--primary)] hover:bg-[var(--primary)]/5 transition-all duration-300 btn-transition"
+              href="/blog"
+              className="px-6 py-3 bg-white dark:bg-gray-800 text-[var(--primary)] font-medium rounded-lg border border-[var(--primary)] hover:bg-[var(--primary)]/5 transition-all duration-300 btn-transition"
             >
-              Hakkımda
+              Yazılarım
+            </Link>
+            <Link
+              href="/contact"
+              className="px-6 py-3 bg-gray-800 text-white font-medium rounded-lg hover:bg-gray-700 shadow-lg transition-all duration-300 btn-transition"
+            >
+              Benimle İletişime Geç
             </Link>
           </div>
         </div>
@@ -120,6 +129,13 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
             <span className="relative z-10">Projelerim</span>
             <span className="absolute -bottom-2 left-0 w-1/3 h-1 bg-[var(--primary)] rounded-full"></span>
           </h2>
+           <Link
+            href="/projects"
+            className="text-[var(--primary)] hover:text-[var(--primary-dark)] dark:text-[var(--primary)] dark:hover:text-[var(--primary-light)] font-medium group flex items-center btn-transition"
+          >
+            Tümünü Gör
+            <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -188,7 +204,7 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
             Yeni bir proje fikriniz mi var? Mevcut projenizi geliştirmek mi istiyorsunuz? Hemen iletişime geçin!
           </p>
-          <Link href="/hakkimda#iletisim" className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors">
+          <Link href="/contact" className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors">
             İletişime Geç
           </Link>
         </div>

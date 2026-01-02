@@ -2,9 +2,11 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="bg-white/90 shadow-md dark:bg-gray-900/95 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-100 dark:border-gray-800">
@@ -16,7 +18,7 @@ const Navbar = () => {
             </div>
             <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white dark:border-gray-900"></div>
           </div>
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[var(--primary)] to-[var(--accent)]">Portfolyo</span> Blog
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[var(--primary)] to-[var(--accent)]">Ömer</span> Özbay
         </Link>
         
         {/* Desktop Menu */}
@@ -24,42 +26,54 @@ const Navbar = () => {
           <li>
             <Link 
               href="/" 
-              className="text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] font-medium relative btn-transition group flex items-center"
+              className={`text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] font-medium relative btn-transition group flex items-center ${pathname === '/' ? 'text-[var(--primary)] dark:text-[var(--primary)]' : ''}`}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
               </svg>
               <span>Ana Sayfa</span>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--primary)] transition-all duration-300 group-hover:w-full"></span>
+              <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--primary)] transition-all duration-300 group-hover:w-full ${pathname === '/' ? 'w-full' : ''}`}></span>
+            </Link>
+          </li>
+           <li>
+            <Link
+              href="/projects"
+              className={`text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] font-medium relative btn-transition group flex items-center ${pathname === '/projects' ? 'text-[var(--primary)] dark:text-[var(--primary)]' : ''}`}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+              </svg>
+              <span>Projeler</span>
+              <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--primary)] transition-all duration-300 group-hover:w-full ${pathname === '/projects' ? 'w-full' : ''}`}></span>
             </Link>
           </li>
           <li>
             <Link 
               href="/blog" 
-              className="text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] font-medium relative btn-transition group flex items-center"
+              className={`text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] font-medium relative btn-transition group flex items-center ${pathname.startsWith('/blog') ? 'text-[var(--primary)] dark:text-[var(--primary)]' : ''}`}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
               </svg>
               <span>Blog</span>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--primary)] transition-all duration-300 group-hover:w-full"></span>
+              <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--primary)] transition-all duration-300 group-hover:w-full ${pathname.startsWith('/blog') ? 'w-full' : ''}`}></span>
             </Link>
           </li>
           <li>
             <Link 
               href="/hakkimda" 
-              className="text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] font-medium relative btn-transition group flex items-center"
+              className={`text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] font-medium relative btn-transition group flex items-center ${pathname === '/hakkimda' ? 'text-[var(--primary)] dark:text-[var(--primary)]' : ''}`}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
               <span>Hakkımda</span>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--primary)] transition-all duration-300 group-hover:w-full"></span>
+              <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--primary)] transition-all duration-300 group-hover:w-full ${pathname === '/hakkimda' ? 'w-full' : ''}`}></span>
             </Link>
           </li>
           <li>
             <Link 
-              href="/hakkimda#iletisim" 
+              href="/contact"
               className="px-4 py-2 bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-white rounded-lg transition-all duration-300 flex items-center text-sm font-medium"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -92,13 +106,13 @@ const Navbar = () => {
       </nav>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden transition-all duration-300 overflow-hidden ${isMenuOpen ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}>
+      <div className={`md:hidden transition-all duration-300 overflow-hidden ${isMenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className="container mx-auto px-6 py-2 pb-4">
           <ul className="flex flex-col space-y-3">
             <li>
               <Link 
                 href="/" 
-                className="text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] font-medium flex items-center py-2"
+                className={`text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] font-medium flex items-center py-2 ${pathname === '/' ? 'text-[var(--primary)]' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -108,9 +122,21 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
+              <Link
+                href="/projects"
+                className={`text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] font-medium flex items-center py-2 ${pathname === '/projects' ? 'text-[var(--primary)]' : ''}`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                </svg>
+                Projeler
+              </Link>
+            </li>
+            <li>
               <Link 
                 href="/blog" 
-                className="text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] font-medium flex items-center py-2"
+                className={`text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] font-medium flex items-center py-2 ${pathname.startsWith('/blog') ? 'text-[var(--primary)]' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -122,7 +148,7 @@ const Navbar = () => {
             <li>
               <Link 
                 href="/hakkimda" 
-                className="text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] font-medium flex items-center py-2"
+                className={`text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] font-medium flex items-center py-2 ${pathname === '/hakkimda' ? 'text-[var(--primary)]' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -133,8 +159,8 @@ const Navbar = () => {
             </li>
             <li>
               <Link 
-                href="/hakkimda#iletisim" 
-                className="text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] font-medium flex items-center py-2"
+                href="/contact"
+                className={`text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] font-medium flex items-center py-2 ${pathname === '/contact' ? 'text-[var(--primary)]' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
