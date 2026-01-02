@@ -3,7 +3,7 @@ title: 'Yapay Zeka ile Yazılım Geliştirme: Fırsatlar ve Zorluklar'
 date: '2023-10-15'
 author: 'Ahmet Yılmaz'
 excerpt: 'Yapay zeka teknolojilerinin yazılım geliştirme süreçlerine entegrasyonu, avantajları ve karşılaşılan zorluklar.'
-coverImage: '/images/blog/ai-development.jpg'
+coverImage: '/images/blog/ai-development.png'
 tags: ['Yapay Zeka', 'Yazılım Geliştirme', 'AI Araçları']
 ---
 

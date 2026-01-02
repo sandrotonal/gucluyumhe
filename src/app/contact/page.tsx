@@ -1,6 +1,37 @@
 'use client';
 
+import { useState, FormEvent } from 'react';
+
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: 'project',
+    message: ''
+  });
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+
+    // Construct mailto link
+    const mailtoLink = `mailto:iletisim@omerozbay.com?subject=[${formData.subject}] ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    )}`;
+
+    // Open default mail client
+    window.location.href = mailtoLink;
+
+    // Optional: Show feedback
+    alert('E-posta istemciniz açılıyor...');
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
   return (
     <div className="container mx-auto px-4 py-12 page-transition">
       <div className="max-w-2xl mx-auto">
@@ -12,7 +43,7 @@ export default function ContactPage() {
         </p>
 
         <div className="bg-[var(--card-bg)] dark:bg-gray-800 rounded-xl shadow-lg border border-[var(--card-border)] p-8">
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Adınız Soyadınız
@@ -21,6 +52,8 @@ export default function ContactPage() {
                 type="text"
                 id="name"
                 name="name"
+                value={formData.name}
+                onChange={handleChange}
                 className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent outline-none transition-all"
                 placeholder="Adınız"
                 required
@@ -35,6 +68,8 @@ export default function ContactPage() {
                 type="email"
                 id="email"
                 name="email"
+                value={formData.email}
+                onChange={handleChange}
                 className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent outline-none transition-all"
                 placeholder="ornek@email.com"
                 required
@@ -48,12 +83,14 @@ export default function ContactPage() {
               <select
                 id="subject"
                 name="subject"
+                value={formData.subject}
+                onChange={handleChange}
                 className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent outline-none transition-all"
               >
-                <option value="project">Proje Teklifi</option>
-                <option value="collaboration">İş Birliği</option>
-                <option value="general">Genel Soru</option>
-                <option value="other">Diğer</option>
+                <option value="Proje Teklifi">Proje Teklifi</option>
+                <option value="İş Birliği">İş Birliği</option>
+                <option value="Genel Soru">Genel Soru</option>
+                <option value="Diğer">Diğer</option>
               </select>
             </div>
 
@@ -64,6 +101,8 @@ export default function ContactPage() {
               <textarea
                 id="message"
                 name="message"
+                value={formData.message}
+                onChange={handleChange}
                 rows={4}
                 className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent outline-none transition-all resize-none"
                 placeholder="Mesajınızı buraya yazın..."
@@ -82,7 +121,7 @@ export default function ContactPage() {
 
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
           <a
-            href="mailto:info@example.com"
+            href="mailto:iletisim@omerozbay.com"
             className="p-4 rounded-lg bg-[var(--card-bg)] dark:bg-gray-800 border border-[var(--card-border)] hover:border-[var(--primary)] transition-colors group"
           >
             <div className="w-10 h-10 mx-auto bg-[var(--primary)]/10 text-[var(--primary)] rounded-full flex items-center justify-center mb-3 group-hover:bg-[var(--primary)] group-hover:text-white transition-colors">
@@ -91,11 +130,11 @@ export default function ContactPage() {
               </svg>
             </div>
             <h3 className="font-medium text-gray-900 dark:text-white">Email</h3>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">info@example.com</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">iletisim@omerozbay.com</p>
           </a>
 
           <a
-            href="https://github.com/username"
+            href="https://github.com/omerozbay"
             target="_blank"
             rel="noopener noreferrer"
             className="p-4 rounded-lg bg-[var(--card-bg)] dark:bg-gray-800 border border-[var(--card-border)] hover:border-[var(--primary)] transition-colors group"
@@ -106,11 +145,11 @@ export default function ContactPage() {
               </svg>
             </div>
             <h3 className="font-medium text-gray-900 dark:text-white">GitHub</h3>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">@username</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">@omerozbay</p>
           </a>
 
           <a
-            href="https://linkedin.com/in/username"
+            href="https://linkedin.com/in/omerozbay"
             target="_blank"
             rel="noopener noreferrer"
             className="p-4 rounded-lg bg-[var(--card-bg)] dark:bg-gray-800 border border-[var(--card-border)] hover:border-[var(--primary)] transition-colors group"
@@ -121,7 +160,7 @@ export default function ContactPage() {
               </svg>
             </div>
             <h3 className="font-medium text-gray-900 dark:text-white">LinkedIn</h3>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">@username</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">@omerozbay</p>
           </a>
         </div>
       </div>

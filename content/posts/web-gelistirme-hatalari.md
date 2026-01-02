@@ -3,7 +3,7 @@ title: 'Web Geliştirmede Karşılaşılan Yaygın Hatalar ve Çözümleri'
 date: '2023-09-01'
 author: 'Zeynep Kaya'
 excerpt: 'Web geliştirme sürecinde sık karşılaşılan hatalar ve bunları çözme yöntemleri.'
-coverImage: '/images/blog/common-mistakes.jpg'
+coverImage: '/images/blog/common-mistakes.png'
 tags: ['Hata Ayıklama', 'Web Geliştirme', 'Best Practices']
 ---
 

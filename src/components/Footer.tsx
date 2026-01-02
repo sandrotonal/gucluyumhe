@@ -12,17 +12,17 @@ const Footer = () => {
           {/* Şirket Bilgileri */}
           <div className="flex flex-col">
             <Link href="/" className="text-xl font-bold mb-4 inline-block">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[var(--primary)] to-[var(--accent)]">Portfolyo</span> Blog
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[var(--primary)] to-[var(--accent)]">Ömer</span>Özbay
             </Link>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
-              Profesyonel web geliştirme ve yazılım çözümleri. Modern teknolojilerle işinizi bir üst seviyeye taşıyın.
+              Doğubayazıt&apos;tan dünyaya açılan yazılım çözümleri. Web, SaaS ve AI projeleri ile dijital fikirleri gerçeğe dönüştürüyorum.
             </p>
             <div className="flex items-center space-x-1 text-[var(--primary)]">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-              <span className="text-sm text-gray-600 dark:text-gray-300">İstanbul, Türkiye</span>
+              <span className="text-sm text-gray-600 dark:text-gray-300">Ağrı / Doğubayazıt</span>
             </div>
           </div>
           
@@ -34,6 +34,10 @@ const Footer = () => {
                 <span className="w-0 h-0.5 bg-[var(--primary)] transition-all duration-300 group-hover:w-2 mr-0 group-hover:mr-1"></span>
                 Ana Sayfa
               </Link>
+              <Link href="/projects" className="text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] transition-all duration-300 flex items-center gap-2 group">
+                <span className="w-0 h-0.5 bg-[var(--primary)] transition-all duration-300 group-hover:w-2 mr-0 group-hover:mr-1"></span>
+                Projeler
+              </Link>
               <Link href="/blog" className="text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] transition-all duration-300 flex items-center gap-2 group">
                 <span className="w-0 h-0.5 bg-[var(--primary)] transition-all duration-300 group-hover:w-2 mr-0 group-hover:mr-1"></span>
                 Blog
@@ -42,17 +46,9 @@ const Footer = () => {
                 <span className="w-0 h-0.5 bg-[var(--primary)] transition-all duration-300 group-hover:w-2 mr-0 group-hover:mr-1"></span>
                 Hakkımda
               </Link>
-              <Link href="/hakkimda#iletisim" className="text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] transition-all duration-300 flex items-center gap-2 group">
+              <Link href="/contact" className="text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] transition-all duration-300 flex items-center gap-2 group">
                 <span className="w-0 h-0.5 bg-[var(--primary)] transition-all duration-300 group-hover:w-2 mr-0 group-hover:mr-1"></span>
                 İletişim
-              </Link>
-              <Link href="/hakkimda#deneyim" className="text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] transition-all duration-300 flex items-center gap-2 group">
-                <span className="w-0 h-0.5 bg-[var(--primary)] transition-all duration-300 group-hover:w-2 mr-0 group-hover:mr-1"></span>
-                Deneyim
-              </Link>
-              <Link href="/hakkimda#uzmanlik" className="text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] transition-all duration-300 flex items-center gap-2 group">
-                <span className="w-0 h-0.5 bg-[var(--primary)] transition-all duration-300 group-hover:w-2 mr-0 group-hover:mr-1"></span>
-                Uzmanlık
               </Link>
             </div>
           </div>
@@ -94,7 +90,7 @@ const Footer = () => {
                 </div>
               </Link>
               <Link 
-                href="/hakkimda#iletisim" 
+                href="/contact"
                 className="text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] transition-all duration-300 flex items-center gap-3 group"
               >
                 <div className="bg-gray-100 dark:bg-gray-800 p-2 rounded-full group-hover:bg-[var(--primary-light)] group-hover:text-[var(--primary)] transition-all duration-300">
@@ -114,7 +110,7 @@ const Footer = () => {
         {/* Alt Kısım */}
         <div className="pt-8 border-t border-gray-200 dark:border-gray-700 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-600 dark:text-gray-300 text-sm">
-            © {currentYear} Portfolyo Blog. Tüm hakları saklıdır.
+            © {currentYear} Ömer Özbay. Tüm hakları saklıdır.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="/hakkimda" className="text-sm text-gray-500 dark:text-gray-400 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] transition-all duration-300">

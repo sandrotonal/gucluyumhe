@@ -3,7 +3,7 @@ title: 'Web Geliştirme Trendleri 2023'
 date: '2023-06-15'
 author: 'Yazılım Geliştirici'
 excerpt: 'Bu yazıda 2023 yılının öne çıkan web geliştirme trendlerini inceliyoruz.'
-coverImage: '/images/blog/web-trends.jpg'
+coverImage: '/images/blog/web-trends.png'
 tags: ['Web Geliştirme', 'Trendler', 'Frontend']
 ---
 

@@ -3,7 +3,7 @@ export const projects = [
     id: 1,
     title: 'SaaS Başlangıç Kiti',
     description: 'Next.js, Tailwind CSS ve Stripe entegrasyonu ile hızlı SaaS geliştirme için başlangıç şablonu.',
-    image: '/images/projects/saas-starter.jpg',
+    image: '', // Empty to force gradient fallback
     demoUrl: 'https://example.com/demo',
     githubUrl: 'https://github.com/username/saas-starter',
     technologies: ['Next.js', 'React', 'Tailwind', 'Stripe']
@@ -12,7 +12,7 @@ export const projects = [
     id: 2,
     title: 'AI Destekli İçerik Üretici',
     description: 'OpenAI API kullanarak blog yazıları ve sosyal medya içerikleri üreten web uygulaması.',
-    image: '/images/projects/ai-content.jpg',
+    image: '', // Empty to force gradient fallback
     demoUrl: 'https://example.com/demo',
     githubUrl: 'https://github.com/username/ai-content-generator',
     technologies: ['React', 'Next.js', 'OpenAI API', 'Vercel AI SDK']
@@ -21,7 +21,7 @@ export const projects = [
     id: 3,
     title: 'Kişisel Portfolyo',
     description: 'Modern tasarım ve performans odaklı, Next.js ile geliştirilmiş kişisel web sitesi.',
-    image: '/images/projects/portfolio.jpg',
+    image: '', // Empty to force gradient fallback
     demoUrl: 'https://gucluyumhe.com',
     githubUrl: 'https://github.com/username/portfolio',
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS']
@@ -30,7 +30,7 @@ export const projects = [
     id: 4,
     title: 'Doğubayazıt Rehberi',
     description: 'Yerel turizmi desteklemek amacıyla geliştirilen, bölgedeki önemli yerleri tanıtan mobil uyumlu web sitesi.',
-    image: '/images/projects/guide.jpg',
+    image: '', // Empty to force gradient fallback
     demoUrl: 'https://example.com/demo',
     githubUrl: 'https://github.com/username/dogubayazit-guide',
     technologies: ['Vue.js', 'Leaflet Maps', 'Firebase']
