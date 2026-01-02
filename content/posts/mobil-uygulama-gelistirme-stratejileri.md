@@ -3,7 +3,7 @@ title: 'Etkili Mobil Uygulama Geliştirme Stratejileri'
 date: '2023-12-01'
 author: 'Yazılım Geliştirici'
 excerpt: 'Başarılı mobil uygulamalar geliştirmek için izlenmesi gereken stratejiler ve en iyi uygulamalar.'
-coverImage: '/images/blog/mobile-dev.png'
+coverImage: '/images/blog/mobile.jpg'
 tags: ['Mobil Geliştirme', 'UX Tasarımı', 'App Stratejisi']
 ---
 

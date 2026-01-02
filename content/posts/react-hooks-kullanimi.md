@@ -3,7 +3,7 @@ title: 'React Hooks Kullanımı ve En İyi Pratikler'
 date: '2023-06-15'
 author: 'Yazılım Geliştirici'
 excerpt: 'React Hooks ile fonksiyonel bileşenlerde state yönetimi ve yaşam döngüsü metodlarını nasıl kullanabileceğinizi öğrenin.'
-coverImage: '/images/blog/react-hooks.png'
+coverImage: '/images/blog/react.jpg'
 tags: ['React', 'JavaScript', 'Frontend']
 ---
 

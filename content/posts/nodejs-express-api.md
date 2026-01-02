@@ -3,7 +3,7 @@ title: 'Node.js ve Express ile RESTful API Geliştirme'
 date: '2023-07-20'
 author: 'Yazılım Geliştirici'
 excerpt: 'Node.js ve Express.js kullanarak modern, güvenli ve ölçeklenebilir RESTful API nasıl geliştirilir?'
-coverImage: '/images/blog/nodejs-express.png'
+coverImage: '/images/blog/backend.jpg'
 tags: ['Node.js', 'Express', 'API', 'Backend']
 ---
 

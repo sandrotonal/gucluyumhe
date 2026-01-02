@@ -3,7 +3,7 @@ title: 'Bir Uygulamayı Sıfırdan Üretme Süreci'
 date: '2023-08-05'
 author: 'Yazılım Geliştirici'
 excerpt: 'Fikir aşamasından yayınlamaya kadar bir web uygulaması geliştirme sürecinin adımları.'
-coverImage: '/images/blog/app-development.png'
+coverImage: '/images/blog/generic.jpg'
 tags: ['Uygulama Geliştirme', 'Proje Yönetimi', 'Web']
 ---
 

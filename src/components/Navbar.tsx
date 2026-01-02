@@ -61,14 +61,14 @@ const Navbar = () => {
           </li>
           <li>
             <Link 
-              href="/hakkimda" 
-              className={`text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] font-medium relative btn-transition group flex items-center ${pathname === '/hakkimda' ? 'text-[var(--primary)] dark:text-[var(--primary)]' : ''}`}
+              href="/about"
+              className={`text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] font-medium relative btn-transition group flex items-center ${pathname === '/about' ? 'text-[var(--primary)] dark:text-[var(--primary)]' : ''}`}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
               <span>Hakkımda</span>
-              <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--primary)] transition-all duration-300 group-hover:w-full ${pathname === '/hakkimda' ? 'w-full' : ''}`}></span>
+              <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--primary)] transition-all duration-300 group-hover:w-full ${pathname === '/about' ? 'w-full' : ''}`}></span>
             </Link>
           </li>
           <li>
@@ -147,8 +147,8 @@ const Navbar = () => {
             </li>
             <li>
               <Link 
-                href="/hakkimda" 
-                className={`text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] font-medium flex items-center py-2 ${pathname === '/hakkimda' ? 'text-[var(--primary)]' : ''}`}
+                href="/about"
+                className={`text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] font-medium flex items-center py-2 ${pathname === '/about' ? 'text-[var(--primary)]' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">

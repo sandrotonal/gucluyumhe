@@ -24,7 +24,7 @@ export default function ProjectsPage() {
     <div className="container mx-auto px-4 py-12 page-transition">
       <div className="text-center mb-16">
         <h1 className="text-3xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[var(--primary-dark)] to-[var(--accent)] dark:from-[var(--primary)] dark:to-[var(--accent)] inline-block">
-          Projelerim
+          Tüm Projelerim
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
           Fikirlerimi koda döktüğüm, öğrenirken ürettiğim çalışmalar.

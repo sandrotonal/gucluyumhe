@@ -3,7 +3,7 @@ title: 'Modern Frontend Mimarileri ve Performans Optimizasyonu'
 date: '2023-11-05'
 author: 'Mehmet Kaya'
 excerpt: 'Günümüz web uygulamalarında kullanılan modern frontend mimarileri ve performans optimizasyon teknikleri.'
-coverImage: '/images/blog/frontend-architecture.png'
+coverImage: '/images/blog/react.jpg'
 tags: ['Frontend', 'Performans', 'Mimari']
 ---
 

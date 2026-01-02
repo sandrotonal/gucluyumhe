@@ -3,7 +3,7 @@ title: 'Yapay Zeka ve Web Geliştirme İlişkisi'
 date: '2023-05-15'
 author: 'Ayşe Yılmaz'
 excerpt: 'Yapay zeka teknolojilerinin web geliştirme süreçlerine nasıl entegre edildiğini ve geleceğin web uygulamalarını nasıl şekillendireceğini keşfedin.'
-coverImage: '/images/blog/ai-web-dev.png'
+coverImage: '/images/blog/ai.jpg'
 tags: ['Yapay Zeka', 'Web Geliştirme', 'Teknoloji']
 ---
 
