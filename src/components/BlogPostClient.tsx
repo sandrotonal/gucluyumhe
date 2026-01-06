@@ -137,7 +137,7 @@ export default function BlogPostClient({ postData }: BlogPostClientProps) {
               </svg>
             </button>
             <a
-              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(postData.title)}&url=${encodeURIComponent(`https://example.com/blog/${postData.id}`)}`}
+              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(postData.title)}&url=${encodeURIComponent(`https://omer-ozbay-blog.vercel.app/blog/${postData.id}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-[#1DA1F2] text-white rounded-full hover:bg-[#0c85d0] transition-all duration-300 hover:scale-110 btn-transition"
@@ -146,7 +146,7 @@ export default function BlogPostClient({ postData }: BlogPostClientProps) {
               <Twitter className="w-5 h-5" />
             </a>
             <a
-              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://example.com/blog/${postData.id}`)}`}
+              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://omer-ozbay-blog.vercel.app/blog/${postData.id}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-[#0077B5] text-white rounded-full hover:bg-[#005885] transition-all duration-300 hover:scale-110 btn-transition"
