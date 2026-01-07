@@ -15,8 +15,30 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Yazılım Portfolyo Blog",
-  description: "Yazılım projelerimi ve deneyimlerimi paylaştığım kişisel blog sitem",
+  metadataBase: new URL('https://omer-ozbay-blog.vercel.app'),
+  title: "Ömer Özbay | Yazılım Geliştirici & Blog",
+  description: "Ağrı/Doğubayazıt'tan 20 yaşında bir yazılım geliştirici. SaaS projeleri, yapay zeka ve modern web teknolojileri üzerine blog yazıları ve portfolyo.",
+  openGraph: {
+    title: "Ömer Özbay | Yazılım Geliştirici",
+    description: "Modern web teknolojileri ve yapay zeka üzerine çalışmalar.",
+    type: "website",
+    locale: "tr_TR",
+    url: "https://omer-ozbay-blog.vercel.app",
+    siteName: "Ömer Özbay Blog",
+    images: [
+      {
+        url: "/images/og-image.jpg", // Make sure this exists or use a default
+        width: 1200,
+        height: 630,
+        alt: "Ömer Özbay Portfolyo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ömer Özbay | Yazılım Geliştirici",
+    description: "SaaS ve AI odaklı yazılım geliştirme.",
+  },
 };
 
 export default function RootLayout({
