@@ -74,19 +74,6 @@ export default function BlogClient({ allPostsData }: BlogClientProps) {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                   </Link>
-                  <button
-                    onClick={() => {
-                      alert(`${post.id} için demo başlatılıyor...`);
-                      // Burada gerçek bir demo başlatma kodu olabilir
-                      // Örneğin: window.open(`/demo/${post.id}`, '_blank');
-                    }}
-                    className="inline-flex items-center px-4 py-2 bg-[var(--accent)] text-white text-sm rounded-lg hover:bg-opacity-90 transition-all duration-300 btn-transition"
-                  >
-                    <span>Demo</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
-                    </svg>
-                  </button>
                 </div>
                 <div className="text-sm text-gray-500 dark:text-gray-400">
                   {post.author}
