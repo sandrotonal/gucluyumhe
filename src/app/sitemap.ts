@@ -1,8 +1,10 @@
 import { getAllPostIds } from '@/utils/markdown';
 import { MetadataRoute } from 'next';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://example.com'; // User should update this domain
+  const baseUrl = 'https://omer-ozbay-blog.vercel.app';
   const posts = getAllPostIds();
 
   const postUrls = posts.map((post) => ({
@@ -29,6 +31,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/hakkimda`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/projects`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
       priority: 0.5,
     },
     ...postUrls,
