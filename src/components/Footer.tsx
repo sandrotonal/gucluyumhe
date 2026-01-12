@@ -62,7 +62,7 @@ const Footer = () => {
             <h3 className="text-sm font-semibold text-gray-800 dark:text-white uppercase tracking-wider mb-4">Bağlantıda Kalın</h3>
             <div className="flex flex-col space-y-4">
               <Link 
-                href="https://github.com" 
+                href="https://github.com/omerozbay"
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] transition-all duration-300 flex items-center gap-3 group"
@@ -78,7 +78,7 @@ const Footer = () => {
                 </div>
               </Link>
               <Link 
-                href="https://linkedin.com" 
+                href="https://linkedin.com/in/omerozbay"
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] transition-all duration-300 flex items-center gap-3 group"
