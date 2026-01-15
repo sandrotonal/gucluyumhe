@@ -1,6 +1,7 @@
 'use client';
 
 import { projects } from '@/data/projects';
+import Image from 'next/image';
 
 export default function ProjectsPage() {
   return (
@@ -20,12 +21,19 @@ export default function ProjectsPage() {
             key={project.id}
             className="bg-[var(--card-bg)] dark:bg-gray-800 rounded-xl shadow-md overflow-hidden border border-[var(--card-border)] card-hover-effect group flex flex-col h-full"
           >
-            {/* Image Placeholder if image fails or is missing, but for now we assume images might not exist so we can use a gradient or pattern */}
             <div className="relative h-48 w-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center overflow-hidden">
-               <div className="text-4xl text-gray-400 dark:text-gray-500 opacity-20 transform -rotate-12 group-hover:scale-110 transition-transform duration-500">
-                  &lt;/&gt;
-               </div>
-               {/* If actual images existed we would use Next/Image here */}
+               {project.image ? (
+                 <Image
+                   src={project.image}
+                   alt={project.title}
+                   fill
+                   className="object-cover transition-transform duration-500 group-hover:scale-110"
+                 />
+               ) : (
+                 <div className="text-4xl text-gray-400 dark:text-gray-500 opacity-20 transform -rotate-12 group-hover:scale-110 transition-transform duration-500">
+                    &lt;/&gt;
+                 </div>
+               )}
             </div>
 
             <div className="p-6 flex flex-col flex-grow">
