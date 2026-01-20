@@ -42,7 +42,7 @@ const Footer = () => {
                 <span className="w-0 h-0.5 bg-[var(--primary)] transition-all duration-300 group-hover:w-2 mr-0 group-hover:mr-1"></span>
                 Hakkımda
               </Link>
-              <Link href="/hakkimda#iletisim" className="text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] transition-all duration-300 flex items-center gap-2 group">
+              <Link href="/contact" className="text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] transition-all duration-300 flex items-center gap-2 group">
                 <span className="w-0 h-0.5 bg-[var(--primary)] transition-all duration-300 group-hover:w-2 mr-0 group-hover:mr-1"></span>
                 İletişim
               </Link>
@@ -62,7 +62,7 @@ const Footer = () => {
             <h3 className="text-sm font-semibold text-gray-800 dark:text-white uppercase tracking-wider mb-4">Bağlantıda Kalın</h3>
             <div className="flex flex-col space-y-4">
               <Link 
-                href="https://github.com" 
+                href="https://github.com/omerozbay"
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] transition-all duration-300 flex items-center gap-3 group"
@@ -78,7 +78,7 @@ const Footer = () => {
                 </div>
               </Link>
               <Link 
-                href="https://linkedin.com" 
+                href="https://linkedin.com/in/omerozbay"
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] transition-all duration-300 flex items-center gap-3 group"
@@ -94,7 +94,7 @@ const Footer = () => {
                 </div>
               </Link>
               <Link 
-                href="/hakkimda#iletisim" 
+                href="/contact"
                 className="text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] transition-all duration-300 flex items-center gap-3 group"
               >
                 <div className="bg-gray-100 dark:bg-gray-800 p-2 rounded-full group-hover:bg-[var(--primary-light)] group-hover:text-[var(--primary)] transition-all duration-300">

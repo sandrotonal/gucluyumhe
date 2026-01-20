@@ -79,7 +79,7 @@ export default function AboutPage() {
             </div>
             <div className="flex justify-center space-x-3">
               <a 
-                href="https://github.com/username" 
+                href="https://github.com/omerozbay"
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="p-2.5 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-all duration-300 hover:scale-110 hover:shadow-lg btn-transition"
@@ -90,7 +90,7 @@ export default function AboutPage() {
                 </svg>
               </a>
               <a 
-                href="https://linkedin.com/in/username" 
+                href="https://linkedin.com/in/omerozbay"
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="p-2.5 bg-[#0077B5] text-white rounded-lg hover:bg-[#005885] transition-all duration-300 hover:scale-110 hover:shadow-lg btn-transition"
@@ -190,7 +190,7 @@ export default function AboutPage() {
       </section>
 
       {/* Yetenekler Bölümü */}
-      <section className="mb-12 scroll-animate fade-up">
+      <section id="uzmanlik" className="mb-12 scroll-animate fade-up">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl font-semibold relative inline-block">
             <span className="relative z-10">Uzmanlık & İlgi Alanları</span>
@@ -217,7 +217,7 @@ export default function AboutPage() {
       </section>
 
       {/* Deneyim Bölümü */}
-      <section className="mb-12 scroll-animate fade-up">
+      <section id="deneyim" className="mb-12 scroll-animate fade-up">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl font-semibold relative inline-block">
             <span className="relative z-10">Gelişim Yolculuğum</span>

@@ -82,7 +82,7 @@ export default function ContactPage() {
 
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
           <a
-            href="mailto:info@example.com"
+            href="mailto:contact@omerozbay.com"
             className="p-4 rounded-lg bg-[var(--card-bg)] dark:bg-gray-800 border border-[var(--card-border)] hover:border-[var(--primary)] transition-colors group"
           >
             <div className="w-10 h-10 mx-auto bg-[var(--primary)]/10 text-[var(--primary)] rounded-full flex items-center justify-center mb-3 group-hover:bg-[var(--primary)] group-hover:text-white transition-colors">
@@ -91,11 +91,11 @@ export default function ContactPage() {
               </svg>
             </div>
             <h3 className="font-medium text-gray-900 dark:text-white">Email</h3>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">info@example.com</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">contact@omerozbay.com</p>
           </a>
 
           <a
-            href="https://github.com/username"
+            href="https://github.com/omerozbay"
             target="_blank"
             rel="noopener noreferrer"
             className="p-4 rounded-lg bg-[var(--card-bg)] dark:bg-gray-800 border border-[var(--card-border)] hover:border-[var(--primary)] transition-colors group"
@@ -106,11 +106,11 @@ export default function ContactPage() {
               </svg>
             </div>
             <h3 className="font-medium text-gray-900 dark:text-white">GitHub</h3>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">@username</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">@omerozbay</p>
           </a>
 
           <a
-            href="https://linkedin.com/in/username"
+            href="https://linkedin.com/in/omerozbay"
             target="_blank"
             rel="noopener noreferrer"
             className="p-4 rounded-lg bg-[var(--card-bg)] dark:bg-gray-800 border border-[var(--card-border)] hover:border-[var(--primary)] transition-colors group"
