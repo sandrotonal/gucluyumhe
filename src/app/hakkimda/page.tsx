@@ -53,7 +53,7 @@ export default function AboutPage() {
       </h1>
 
       {/* Profil ve Özet Bölümü */}
-      <section className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12 scroll-animate fade-up">
+      <section id="iletisim" className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12 scroll-animate fade-up">
         {/* Profil Kartı */}
         <div className="md:col-span-1">
           <div className="bg-[var(--card-bg)] dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-[var(--card-border)] card-hover-effect p-6 group transition-all duration-300">
@@ -190,7 +190,7 @@ export default function AboutPage() {
       </section>
 
       {/* Yetenekler Bölümü */}
-      <section className="mb-12 scroll-animate fade-up">
+      <section id="uzmanlik" className="mb-12 scroll-animate fade-up">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl font-semibold relative inline-block">
             <span className="relative z-10">Uzmanlık & İlgi Alanları</span>
@@ -217,7 +217,7 @@ export default function AboutPage() {
       </section>
 
       {/* Deneyim Bölümü */}
-      <section className="mb-12 scroll-animate fade-up">
+      <section id="deneyim" className="mb-12 scroll-animate fade-up">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl font-semibold relative inline-block">
             <span className="relative z-10">Gelişim Yolculuğum</span>
