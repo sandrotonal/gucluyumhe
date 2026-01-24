@@ -1,98 +1,139 @@
 'use client';
 
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { useState, useMemo } from 'react';
 import { PostMetadata } from '@/utils/markdown';
-import Image from 'next/image';
-import Link from 'next/link';
+import BlogCard from './ui/BlogCard';
+import BlogFilters from './ui/BlogFilters';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface BlogClientProps {
   allPostsData: PostMetadata[];
 }
 
 export default function BlogClient({ allPostsData }: BlogClientProps) {
-  useScrollAnimation();
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [sortOption, setSortOption] = useState<'newest' | 'popular'>('newest');
+
+  // Extract all unique tags
+  const availableTags = useMemo(() => {
+    const tags = new Set<string>();
+    allPostsData.forEach(post => {
+      post.tags?.forEach(tag => tags.add(tag));
+    });
+    return Array.from(tags).sort();
+  }, [allPostsData]);
+
+  // Filter and Sort Logic
+  const filteredPosts = useMemo(() => {
+    let result = [...allPostsData];
+
+    // Search
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      result = result.filter(post =>
+        post.title.toLowerCase().includes(query) ||
+        post.excerpt.toLowerCase().includes(query)
+      );
+    }
+
+    // Tag Filter
+    if (selectedTag) {
+      result = result.filter(post => post.tags?.includes(selectedTag));
+    }
+
+    // Sort
+    result.sort((a, b) => {
+      if (sortOption === 'newest') {
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
+      } else {
+        // "Popular" proxy: longer reading time = more "depth/popular"
+        const timeA = parseInt(a.readingTime) || 0;
+        const timeB = parseInt(b.readingTime) || 0;
+        return timeB - timeA;
+      }
+    });
+
+    return result;
+  }, [allPostsData, searchQuery, selectedTag, sortOption]);
 
   return (
-    <div className="space-y-8 page-transition">
-      <header className="mb-12">
-        <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-4 relative inline-block">
-          <span className="relative z-10">Blog Yazıları</span>
-          <span className="absolute -bottom-2 left-0 w-1/3 h-1 bg-[var(--primary)] rounded-full"></span>
+    <div className="min-h-screen bg-[#0b0f19]">
+      <div className="py-12 px-4 md:px-6 lg:px-8 max-w-[1320px] mx-auto">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-16"
+      >
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+          Blog Yazıları
         </h1>
-        <p className="text-xl text-gray-600 dark:text-gray-300">
-          Yazılım geliştirme, web teknolojileri ve projelerim hakkında düşüncelerimi paylaştığım yazılar.
+        <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          Yazılım geliştirme, modern teknolojiler ve deneyimlerim üzerine notlar.
         </p>
-      </header>
+      </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {allPostsData.map((post) => (
-          <div
-            key={post.id}
-            className="group flex flex-col h-full bg-[var(--card-bg)] dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-[var(--card-border)] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
-          >
-            {post.coverImage && (
-              <Link href={`/blog/${post.id}`} className="block overflow-hidden">
-                <div className="relative aspect-video w-full">
-                  <Image
-                    src={post.coverImage}
-                    alt={post.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-              </Link>
-            )}
-            <div className="flex flex-col flex-grow p-6">
-              <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1 text-[var(--primary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <span>{new Date(post.date).toLocaleDateString('tr-TR', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-              </div>
+      {/* Filters */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <BlogFilters
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          selectedTag={selectedTag}
+          setSelectedTag={setSelectedTag}
+          sortOption={sortOption}
+          setSortOption={setSortOption}
+          availableTags={availableTags}
+        />
+      </motion.div>
 
-              <Link href={`/blog/${post.id}`} className="block mb-3">
-                <h2 className="text-2xl font-bold text-gray-800 dark:text-white group-hover:text-[var(--primary)] dark:group-hover:text-[var(--primary-light)] transition-colors">
-                  {post.title}
-                </h2>
-              </Link>
-
-              {post.tags && post.tags.length > 0 && (
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {post.tags.map((tag) => (
-                    <span key={tag} className="px-3 py-1 bg-[var(--primary)]/10 dark:bg-[var(--primary)]/20 text-[var(--primary-dark)] dark:text-[var(--primary-light)] text-xs rounded-full font-medium">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-
-              <p className="text-gray-600 dark:text-gray-300 mb-6 line-clamp-3 leading-relaxed flex-grow">
-                {post.excerpt}
-              </p>
-
-              <div className="flex justify-between items-center pt-4 border-t border-gray-100 dark:border-gray-700">
-                <Link href={`/blog/${post.id}`} className="inline-flex items-center font-medium text-[var(--primary)] hover:underline transition-all group-hover:translate-x-1">
-                  <span>Devamını Oku</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </Link>
-                <div className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                  {post.author}
-                </div>
-              </div>
-            </div>
+      {/* Grid */}
+      {filteredPosts.length > 0 ? (
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          <AnimatePresence mode='popLayout'>
+            {filteredPosts.map((post, index) => (
+              <BlogCard key={post.id} post={post} index={index} />
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      ) : (
+        /* Empty State */
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-center py-20 bg-[#111827] rounded-[20px] border border-white/5"
+        >
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-800/50 mb-4">
+            <svg className="w-8 h-8 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
           </div>
-        ))}
-      </div>
-
-      {allPostsData.length === 0 && (
-        <div className="text-center py-16">
-          <p className="text-xl text-gray-600 dark:text-gray-400">
-            Henüz blog yazısı bulunmamaktadır. Yakında yeni yazılar eklenecektir.
+          <h3 className="text-xl font-medium text-gray-200 mb-2">
+            Sonuç bulunamadı
+          </h3>
+          <p className="text-gray-500">
+            Arama kriterlerinize uygun yazı bulunmamaktadır.
           </p>
-        </div>
-      )}
+          <button
+            onClick={() => {
+              setSearchQuery('');
+              setSelectedTag(null);
+            }}
+            className="mt-6 px-6 py-2 text-sm font-medium text-cyan-400 hover:text-cyan-300 hover:bg-cyan-950/30 rounded-full transition-all"
+            >
+              Filtreleri Temizle
+            </button>
+          </motion.div>
+        )}
+      </div>
     </div>
   );
 }
