@@ -11,12 +11,35 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+// Deterministic gradient generator based on string input
+function getGradientForPost(id: string) {
+  const gradients = [
+    "from-cyan-900 via-blue-900 to-indigo-900",
+    "from-purple-900 via-indigo-900 to-blue-900",
+    "from-emerald-900 via-teal-900 to-cyan-900",
+    "from-rose-900 via-pink-900 to-purple-900",
+    "from-amber-900 via-orange-900 to-red-900",
+    "from-blue-900 via-slate-900 to-gray-900",
+  ];
+
+  // Simple hash function
+  let hash = 0;
+  for (let i = 0; i < id.length; i++) {
+    hash = id.charCodeAt(i) + ((hash << 5) - hash);
+  }
+
+  const index = Math.abs(hash) % gradients.length;
+  return gradients[index];
+}
+
 interface BlogCardProps {
   post: PostMetadata;
   index: number;
 }
 
 export default function BlogCard({ post, index }: BlogCardProps) {
+  const fallbackGradient = getGradientForPost(post.id);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -52,7 +75,10 @@ export default function BlogCard({ post, index }: BlogCardProps) {
               </>
             ) : (
               // Gradient Fallback if no image
-              <div className="w-full h-full bg-gradient-to-br from-cyan-900 via-blue-900 to-indigo-900 flex items-center justify-center group-hover:scale-110 transition-transform duration-700">
+              <div className={cn(
+                "w-full h-full bg-gradient-to-br flex items-center justify-center group-hover:scale-110 transition-transform duration-700",
+                fallbackGradient
+              )}>
                 <svg className="w-12 h-12 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
                 </svg>
@@ -122,7 +148,7 @@ export default function BlogCard({ post, index }: BlogCardProps) {
                  </span>
               </div>
 
-              <div className="flex items-center justify-center w-full sm:w-auto px-4 py-2 sm:p-0 rounded-lg bg-cyan-900/20 sm:bg-transparent text-sm font-semibold text-cyan-400 group-hover:text-cyan-300 transition-colors order-1 sm:order-2 group-hover:bg-cyan-900/30 sm:group-hover:bg-transparent">
+              <div className="flex items-center justify-center w-full sm:w-auto px-4 py-2 sm:p-0 rounded-lg bg-cyan-900/20 sm:bg-transparent text-sm font-semibold text-cyan-400 group-hover:text-cyan-300 transition-all order-1 sm:order-2 group-hover:bg-cyan-900/30 sm:group-hover:bg-transparent group-hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]">
                 Devamını Oku
                 <svg
                   className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1"

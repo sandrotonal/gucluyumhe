@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { PostMetadata } from '@/utils/markdown';
 import BlogCard from './ui/BlogCard';
 import BlogFilters from './ui/BlogFilters';
+import SkeletonBlogCard from './ui/SkeletonBlogCard';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface BlogClientProps {
@@ -11,9 +12,18 @@ interface BlogClientProps {
 }
 
 export default function BlogClient({ allPostsData }: BlogClientProps) {
+  const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [sortOption, setSortOption] = useState<'newest' | 'popular'>('newest');
+
+  // Simulate loading state for skeleton demonstration
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Extract all unique tags
   const availableTags = useMemo(() => {
@@ -93,7 +103,13 @@ export default function BlogClient({ allPostsData }: BlogClientProps) {
       </motion.div>
 
       {/* Grid */}
-      {filteredPosts.length > 0 ? (
+      {isLoading ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <SkeletonBlogCard key={i} />
+          ))}
+        </div>
+      ) : filteredPosts.length > 0 ? (
         <motion.div
           layout
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
