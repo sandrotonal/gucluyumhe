@@ -190,7 +190,7 @@ export default function AboutPage() {
       </section>
 
       {/* Yetenekler Bölümü */}
-      <section className="mb-12 scroll-animate fade-up">
+      <section id="uzmanlik" className="mb-12 scroll-animate fade-up">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl font-semibold relative inline-block">
             <span className="relative z-10">Uzmanlık & İlgi Alanları</span>
@@ -217,7 +217,7 @@ export default function AboutPage() {
       </section>
 
       {/* Deneyim Bölümü */}
-      <section className="mb-12 scroll-animate fade-up">
+      <section id="deneyim" className="mb-12 scroll-animate fade-up">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl font-semibold relative inline-block">
             <span className="relative z-10">Gelişim Yolculuğum</span>
