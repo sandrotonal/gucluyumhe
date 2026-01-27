@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://omer-ozbay-blog.vercel.app'),
   title: "Yazılım Portfolyo Blog",
   description: "Yazılım projelerimi ve deneyimlerimi paylaştığım kişisel blog sitem",
 };
