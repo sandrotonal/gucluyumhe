@@ -14,10 +14,18 @@ export interface PostMetadata {
   excerpt: string;
   coverImage?: string;
   tags?: string[];
+  readingTime: string;
 }
 
 export interface Post extends PostMetadata {
   content: string;
+}
+
+function calculateReadingTime(content: string): string {
+  const wordsPerMinute = 200;
+  const words = content.trim().split(/\s+/).length;
+  const minutes = Math.ceil(words / wordsPerMinute);
+  return `${minutes} dk`;
 }
 
 export function getAllPostIds() {
@@ -50,9 +58,11 @@ export function getSortedPostsData(): PostMetadata[] {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     
     const matterResult = matter(fileContents);
+    const readingTime = calculateReadingTime(matterResult.content);
     
     return {
       id,
+      readingTime,
       ...(matterResult.data as { 
         title: string; 
         date: string; 
@@ -89,9 +99,12 @@ export async function getPostData(slug: string): Promise<Post> {
   
   console.log(`Processed content for ${slug}:`, content.substring(0, 100)); // Debug log
 
+  const readingTime = calculateReadingTime(matterResult.content);
+
   return {
     id: slug,
     content,
+    readingTime,
     ...(matterResult.data as { 
       title: string; 
       date: string; 
